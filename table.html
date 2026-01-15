@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Table 1</title>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+
+<body style="margin:0; overflow:auto;">
+
+<section class="vi-table-embed brand-actionnetwork footer-center align-center" style="width:100%;max-width:100%;margin:0;
+         font:14px/1.35 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+         color:#181a1f;background:#ffffff;border:1px solid #DCEFE6;border-radius:12px;
+         box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 16px rgba(0,0,0,.09);">
+
+  <style>
+    .vi-table-embed, .vi-table-embed * { box-sizing:border-box; font-family:inherit; }
+
+    .vi-table-embed{
+      --brand-50:#F6FFF9;
+      --brand-100:#DCF2EB;
+      --brand-300:#BCE5D6;
+      --brand-500:#56C257;
+      --brand-600:#3FA94B;
+      --brand-700:#2E8538;
+      --brand-900:#1F5D28;
+      --brand-500-rgb: 86, 194, 87;
+
+      --header-bg:var(--brand-500);
+      --stripe:var(--brand-100);
+      --hover:var(--brand-300);
+      --scroll-thumb:var(--brand-500);
+      --footer-border: rgba(var(--brand-500-rgb), 0.35);
+
+      --cell-align:center;
+
+      /* ✅ Controls sizing */
+      --ctrl-font: 13px;
+      --ctrl-pad-y: 7px;
+      --ctrl-pad-x: 10px;
+      --ctrl-radius: 10px;
+      --ctrl-gap: 8px;
+
+      /* ✅ Table scroll height */
+      --table-max-h: 680px;
+    }
+
+    .vi-table-embed.align-left { --cell-align:left; }
+    .vi-table-embed.align-center { --cell-align:center; }
+    .vi-table-embed.align-right { --cell-align:right; }
+
+    .vi-table-embed.brand-vegasinsider{
+      --brand-50:#FFF7DC;
+      --brand-100:#FFE8AA;
+      --brand-300:#FFE08A;
+      --brand-500:#F2C23A;
+      --brand-600:#D9A72A;
+      --brand-700:#B9851A;
+      --brand-900:#111111;
+      --brand-500-rgb: 242, 194, 58;
+
+      --header-bg:var(--brand-500);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-500);
+      --footer-border: rgba(var(--brand-500-rgb), 0.40);
+    }
+
+    .vi-table-embed.brand-canadasb{
+      --brand-50:#FEF2F2;
+      --brand-100:#FEE2E2;
+      --brand-300:#FECACA;
+      --brand-500:#EF4444;
+      --brand-600:#DC2626;
+      --brand-700:#B91C1C;
+      --brand-900:#7F1D1D;
+      --brand-500-rgb: 239, 68, 68;
+
+      --header-bg:var(--brand-600);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-600);
+      --footer-border: rgba(220, 38, 38, 0.40);
+    }
+
+    .vi-table-embed.brand-rotogrinders{
+      --brand-50:#E8F1FF;
+      --brand-100:#D3E3FF;
+      --brand-300:#9ABCF9;
+      --brand-500:#2F7DF3;
+      --brand-600:#0159D1;
+      --brand-700:#0141A1;
+      --brand-900:#011F54;
+      --brand-500-rgb: 47, 125, 243;
+
+      --header-bg:var(--brand-700);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-600);
+      --footer-border: rgba(1, 89, 209, 0.40);
+    }
+
+    /* Header block */
+    .vi-table-embed .vi-table-header{
+      padding:10px 16px 8px;
+      border-bottom:1px solid var(--brand-100);
+      background:linear-gradient(90deg,var(--brand-50),#ffffff);
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:2px;
+    }
+    .vi-table-embed .vi-table-header.centered{ align-items:center; text-align:center; }
+    .vi-table-embed .vi-table-header .title{
+      margin:0; font-size:clamp(18px,2.3vw,22px); font-weight:750; color:#111827; display:block;
+    }
+    .vi-table-embed .vi-table-header .title.branded{ color:var(--brand-600); }
+    .vi-table-embed .vi-table-header .subtitle{ margin:0; font-size:13px; color:#6b7280; display:block; }
+
+    /* Table block */
+    #bt-block, #bt-block * { box-sizing:border-box; }
+    #bt-block{
+      --bg:#ffffff; --text:#1f2937;
+      --gutter: 12px;
+      padding: 10px var(--gutter);
+      padding-top: 10px;
+    }
+
+    /* ✅ Controls row */
+    #bt-block .dw-controls{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items:center;
+      gap: var(--ctrl-gap);
+      margin: 4px 0 10px 0;
+      width:100%;
+      min-width:0;
+    }
+
+    #bt-block .left,
+    #bt-block .right{
+      min-width:0;
+      display:flex;
+      align-items:center;
+    }
+
+    #bt-block .left{ justify-content:flex-start; }
+    #bt-block .right{
+      justify-content:flex-end;
+      gap: var(--ctrl-gap);
+      flex-wrap:nowrap;
+      white-space:nowrap;
+      position:relative;
+    }
+
+    #bt-block .dw-pager,
+    #bt-block .dw-embed{
+      display:flex;
+      align-items:center;
+      gap: var(--ctrl-gap);
+      flex-wrap:nowrap;
+      white-space:nowrap;
+      position:relative;
+    }
+
+    #bt-block .dw-field{ position:relative; min-width:0; width:100%; }
+
+    #bt-block .dw-input,
+    #bt-block .dw-select,
+    #bt-block .dw-btn{
+      font: var(--ctrl-font)/1.1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      border-radius: var(--ctrl-radius);
+      padding: var(--ctrl-pad-y) var(--ctrl-pad-x);
+      transition:.15s ease;
+    }
+
+    /* Search */
+    #bt-block .dw-input{
+      width: 100%;
+      max-width: 260px;
+      min-width: 120px;
+      padding-right: 34px;
+      background:#fff;
+      border:1px solid var(--brand-700);
+      color:var(--text);
+      box-shadow:inset 0 1px 2px rgba(16,24,40,.04);
+    }
+
+    /* ✅ Mobile squeeze so everything fits in one row */
+    @media (max-width: 520px){
+      #bt-block{
+        --ctrl-gap: 6px;
+        --ctrl-font: 12px;
+        --ctrl-pad-y: 6px;
+        --ctrl-pad-x: 8px;
+      }
+      #bt-block .dw-input{
+        max-width: 140px;
+        min-width: 85px;
+      }
+      #bt-block .dw-pager .dw-status{ display:none; }
+      #bt-block .dw-btn.dw-download{
+        font-size: 0;
+        padding-inline: 10px;
+      }
+      #bt-block .dw-btn.dw-download::after{
+        content:"Embed";
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+
+    /* ✅ ONLY stack on *very* tiny screens */
+    @media (max-width: 330px){
+      #bt-block .dw-controls{
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+      }
+      #bt-block .right{
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        white-space:normal;
+      }
+    }
+
+    #bt-block .dw-input::placeholder{color:#9AA4B2}
+    #bt-block .dw-input:focus,
+    #bt-block .dw-select:focus{
+      outline:none;
+      border-color:var(--brand-500);
+      box-shadow:0 0 0 3px rgba(var(--brand-500-rgb), .22);
+      background:#fff;
+    }
+
+    /* Rows/Page dropdown */
+    #bt-block .dw-select{
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      padding-right: 18px;
+      width: 62px;
+      text-align:center;
+      background:#fff;
+      border:1px solid var(--brand-700);
+      color:var(--text);
+      box-shadow:inset 0 1px 2px rgba(16,24,40,.04);
+    }
+
+    /* Buttons */
+    #bt-block .dw-btn{
+      background:var(--brand-500);
+      color:#fff;
+      border:1px solid var(--brand-500);
+      padding-inline: 10px;
+      cursor:pointer;
+      white-space:nowrap;
+      height: 34px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    #bt-block .dw-btn:hover{background:var(--brand-600); border-color:var(--brand-600)}
+    #bt-block .dw-btn:active{transform:translateY(1px)}
+    #bt-block .dw-btn[disabled]{background:#fafafa; border-color:#d1d5db; color:#6b7280; opacity:1; cursor:not-allowed; transform:none}
+    #bt-block .dw-btn[data-page]{ width: 34px; padding: 0; }
+
+    /* Embed/Download button */
+    #bt-block .dw-btn.dw-download{
+      background:#ffffff;
+      color:var(--brand-700);
+      border:1px solid var(--brand-700);
+      height: 34px;
+      padding-inline: 10px;
+      font-weight:600;
+    }
+    #bt-block .dw-btn.dw-download:hover{
+      background:var(--brand-50);
+      border-color:var(--brand-600);
+      color:var(--brand-600);
+    }
+
+    /* ✅ Download menu */
+    #bt-block .dw-download-menu{
+      position:absolute;
+      right:0;
+      top:40px;
+      min-width: 220px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+      padding:10px;
+      z-index: 50;
+
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      gap:6px;
+    }
+
+    #bt-block .dw-download-menu .dw-menu-title{
+      font: 12px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      color:#6b7280;
+      margin:0 0 8px 2px;
+    }
+
+    #bt-block .dw-download-menu .dw-menu-btn{
+      width:100%;
+      display:block;
+      text-align:left;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      color:#111827;
+      padding:10px 10px;
+      cursor:pointer;
+      margin:0;
+      font: 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    }
+    #bt-block .dw-download-menu .dw-menu-btn:hover{
+      background:var(--brand-50);
+      border-color: rgba(var(--brand-500-rgb), .35);
+    }
+
+    /* Clear button */
+    #bt-block .dw-clear{
+      position:absolute; right:9px; top:50%; translate:0 -50%;
+      width:20px; height:20px; border-radius:9999px; border:0;
+      background:transparent; color:var(--brand-700);
+      cursor:pointer; display:none; align-items:center; justify-content:center;
+    }
+    #bt-block .dw-field.has-value .dw-clear{display:flex}
+    #bt-block .dw-clear:hover{background:var(--brand-100)}
+
+    /* ✅ Card wrapper MUST NOT CLIP scrollbars */
+    #bt-block .dw-card{
+      background: var(--bg);
+      border: 0;
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      overflow: visible;
+    }
+
+    /* ✅ REAL vertical + horizontal scroll + branded slim bars */
+    #bt-block .dw-scroll{
+      max-height: min(var(--table-max-h, 680px), calc(100vh - 240px));
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x pan-y;
+      overscroll-behavior: auto;
+      scrollbar-gutter: stable both-edges;
+
+      scrollbar-width: thin;
+      scrollbar-color: var(--scroll-thumb) transparent;
+    }
+
+    /* Chrome/Edge/Safari */
+    #bt-block .dw-scroll::-webkit-scrollbar{ width: 8px; height: 8px; }
+    #bt-block .dw-scroll::-webkit-scrollbar-track{ background: transparent; }
+    #bt-block .dw-scroll::-webkit-scrollbar-thumb{
+      background: var(--scroll-thumb);
+      border-radius: 9999px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    #bt-block .dw-scroll::-webkit-scrollbar-thumb:hover{ background: var(--brand-600); }
+
+    #bt-block table.dw-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      background: transparent;
+      min-width: 600px;
+      table-layout: auto;
+    }
+
+    /* Header row */
+    #bt-block thead th{
+      background:var(--header-bg);
+      color:#ffffff;
+      font-weight:700;
+      vertical-align:middle;
+      border:0;
+      padding:14px 14px;
+      white-space:nowrap;
+      transition:background-color .15s, color .15s, box-shadow .15s, transform .05s;
+    }
+    #bt-block thead th.sortable{cursor:pointer; user-select:none}
+    #bt-block thead th.sortable::after{content:"↕"; font-size:12px; opacity:.75; margin-left:8px; color:#ffffff}
+    #bt-block thead th.sortable[data-sort="asc"]::after{content:"▲"}
+    #bt-block thead th.sortable[data-sort="desc"]::after{content:"▼"}
+    #bt-block thead th.sortable:hover,#bt-block thead th.sortable:focus-visible{background:var(--brand-600); color:#fff; box-shadow:inset 0 -3px 0 var(--brand-100)}
+    #bt-block .dw-scroll.scrolled thead th{box-shadow:0 6px 10px -6px rgba(0,0,0,.25)}
+    #bt-block thead th.is-sorted{background:var(--brand-700); color:#fff; box-shadow:inset 0 -3px 0 var(--brand-100)}
+
+    #bt-block thead th,
+    #bt-block tbody td {
+      padding: 16px 14px;
+      overflow: hidden;
+      text-align: var(--cell-align, center);
+      vertical-align: middle;
+    }
+
+    #bt-block .dw-cell{
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      line-height: 1.35;
+
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    /* Body rows zebra (injected) */
+    
+    #bt-block tbody tr:not(.dw-empty):nth-child(odd) td{background:var(--stripe);}
+    #bt-block tbody tr:not(.dw-empty):nth-child(even) td{background:#ffffff;}
+
+
+    #bt-block tbody tr:hover td{ background:var(--hover) !important; }
+    #bt-block tbody tr:hover{
+      box-shadow:inset 3px 0 0 var(--brand-500);
+      transform:translateY(-1px);
+      transition:background-color .12s ease, box-shadow .12s ease, transform .08s ease;
+    }
+
+    #bt-block thead th{position:sticky; top:0; z-index:5}
+
+    #bt-block tr.dw-empty td{
+      text-align:center; color:#6b7280; font-style:italic; padding:18px 14px;
+      background:linear-gradient(0deg,#fff,var(--brand-50)) !important;
+    }
+
+    /* ✅ Footer always visible */
+    .vi-table-embed .vi-footer {
+      display:block;
+      padding:10px 14px 8px;
+      border-top:1px solid var(--footer-border);
+      background:linear-gradient(90deg,var(--brand-50),#ffffff);
+      position: sticky;
+      bottom: 0;
+      z-index: 20;
+    }
+    .vi-table-embed .footer-inner{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:12px;
+    }
+    .vi-table-embed.footer-center .footer-inner{ justify-content:center; }
+    .vi-table-embed.footer-left .footer-inner{ justify-content:flex-start; }
+    .vi-table-embed .vi-footer img{ height: 36px; width:auto; display:inline-block; }
+
+    .vi-table-embed.brand-actionnetwork .vi-footer img{
+      filter: brightness(0) saturate(100%) invert(62%) sepia(23%) saturate(1250%) hue-rotate(78deg) brightness(96%) contrast(92%);
+      height: 44px;
+      width: auto;
+      display: inline-block;
+    }
+    .vi-table-embed.brand-vegasinsider .vi-footer img{ filter: none !important; height:24px; }
+    .vi-table-embed.brand-canadasb .vi-footer img{
+      filter: brightness(0) saturate(100%) invert(32%) sepia(85%) saturate(2386%) hue-rotate(347deg) brightness(96%) contrast(104%);
+      height: 28px;
+    }
+    .vi-table-embed.brand-rotogrinders .vi-footer img{
+      filter: brightness(0) saturate(100%) invert(23%) sepia(95%) saturate(1704%) hue-rotate(203deg) brightness(93%) contrast(96%);
+      height:32px;
+    }
+
+    .vi-hide{ display:none !important; }
+
+    /* EXPORT MODE (table + logo only) */
+    .vi-table-embed.export-mode .vi-table-header{ display:none !important; }
+    .vi-table-embed.export-mode #bt-block .dw-controls,
+    .vi-table-embed.export-mode #bt-block .dw-page-status{
+      display:none !important;
+    }
+    .vi-table-embed.export-mode #bt-block .dw-scroll{
+      max-height:none !important;
+      height:auto !important;
+      overflow:visible !important;
+    }
+    .vi-table-embed.export-mode #bt-block thead th{ position:static !important; }
+    .vi-table-embed.export-mode #bt-block tbody tr:hover,
+    .vi-table-embed.export-mode #bt-block tbody tr:hover td{
+      transform:none !important;
+      box-shadow:none !important;
+    }
+    .vi-table-embed.export-mode #bt-block table.dw-table{
+      table-layout:fixed !important;
+      width:100% !important;
+    }
+    .vi-table-embed.export-mode #bt-block .dw-scroll.no-scroll{ overflow-x:hidden !important; }
+  </style>
+
+  <!-- Header -->
+  <div class="vi-table-header  ">
+    <span class="title branded">Table 1</span>
+    <span class="subtitle">Subheading</span>
+  </div>
+
+  <!-- Table block -->
+  <div id="bt-block" data-dw="table">
+    <div class="dw-controls ">
+      <div class="left">
+        <div class="dw-field ">
+          <input type="search" class="dw-input" placeholder="Search Table…" aria-label="Search Table">
+          <button type="button" class="dw-clear" aria-label="Clear Search">×</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <!-- Pager -->
+        <div class="dw-pager ">
+          <label class="dw-status" for="bt-size" style="margin-right:2px;">Rows/Page</label>
+          <select id="bt-size" class="dw-select">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="0">All</option>
+          </select>
+
+          <button class="dw-btn" data-page="prev" aria-label="Previous Page">‹</button>
+          <button class="dw-btn" data-page="next" aria-label="Next Page">›</button>
+        </div>
+
+        <!-- Embed/Download -->
+        <div class="dw-embed ">
+          <button class="dw-btn dw-download" id="dw-download-png" type="button">Embed / Download</button>
+
+          <div id="dw-download-menu" class="dw-download-menu vi-hide" aria-label="Download Menu">
+            <div class="dw-menu-title" id="dw-menu-title">Choose action</div>
+            <button type="button" class="dw-menu-btn" id="dw-dl-top10">Download Top 10</button>
+            <button type="button" class="dw-menu-btn" id="dw-dl-bottom10">Download Bottom 10</button>
+            <button type="button" class="dw-menu-btn" id="dw-embed-script">Copy HTML</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dw-card">
+      <div class="dw-scroll">
+        <table class="dw-table">
+          <thead>
+            <tr>
+              <th scope="col" data-type="text">City1</th>
+              <th scope="col" data-type="text">City</th>
+              <th scope="col" data-type="num">WinterClassic_Score</th>
+              <th scope="col" data-type="text">State</th>
+              <th scope="col" data-type="text">Country</th>
+              <th scope="col" data-type="num">Population</th>
+              <th scope="col" data-type="text">NHL Team</th>
+              <th scope="col" data-type="num">Possible Winter Classic-type Stadiums</th>
+              <th scope="col" data-type="num">Stadium 1 Capacity</th>
+              <th scope="col" data-type="num">Stadium 2 Capacity</th>
+              <th scope="col" data-type="num">Stadium 3 Capacity</th>
+              <th scope="col" data-type="text">Stadium 4 Capacity</th>
+              <th scope="col" data-type="num">Number of Hotels In 5 Miles Range Or 15 min Car Ride</th>
+              <th scope="col" data-type="num">Hockey fan base</th>
+              <th scope="col" data-type="num">Airport &amp; travel accessibility</th>
+              <th scope="col" data-type="num">Average January temperature</th>
+            </tr>
+          </thead>
+          <tbody>
+                        <tr><td><div class="dw-cell" title="Chicago, IL">Chicago, IL</div></td><td><div class="dw-cell" title="Chicago">Chicago</div></td><td><div class="dw-cell" title="66.02">66.02</div></td><td><div class="dw-cell" title="IL">IL</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="2,746,388">2,746,388</div></td><td><div class="dw-cell" title="Chicago Blackhawks">Chicago Blackhawks</div></td><td><div class="dw-cell" title="Wrigley Field (2009 WC), Soldier Field (2014 Stadium Series), Guaranteed Rate Field (White Sox).">Wrigley Field (2009 WC), Soldier Field (2014 Stadium Series), Guaranteed Rate Field (White Sox).</div></td><td><div class="dw-cell" title="41,000">41,000</div></td><td><div class="dw-cell" title="61,500">61,500</div></td><td><div class="dw-cell" title="40,615">40,615</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="103.0">103.0</div></td><td><div class="dw-cell" title="2500000">2500000</div></td><td><div class="dw-cell" title="26113502.0">26113502.0</div></td><td><div class="dw-cell" title="25.6°F">25.6°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Dallas / Arlington, TX">Dallas / Arlington, TX</div></td><td><div class="dw-cell" title="Dallas">Dallas</div></td><td><div class="dw-cell" title="63.35">63.35</div></td><td><div class="dw-cell" title="TX">TX</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="7,637,387">7,637,387</div></td><td><div class="dw-cell" title="Dallas Stars">Dallas Stars</div></td><td><div class="dw-cell" title="Cotton Bowl (2020 Winter Classic), AT&amp;T Stadium (Cowboys), Globe Life Field (Rangers, retractable roof).">Cotton Bowl (2020 Winter Classic), AT&amp;T Stadium (Cowboys), Globe Life Field (Rangers, retractable roof).</div></td><td><div class="dw-cell" title="92,100">92,100</div></td><td><div class="dw-cell" title="80,000">80,000</div></td><td><div class="dw-cell" title="40,300">40,300</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="52.0">52.0</div></td><td><div class="dw-cell" title="500000">500000</div></td><td><div class="dw-cell" title="30694774.0">30694774.0</div></td><td><div class="dw-cell" title="47.2°F">47.2°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Los Angeles, CA">Los Angeles, CA</div></td><td><div class="dw-cell" title="Los Angeles">Los Angeles</div></td><td><div class="dw-cell" title="59.16">59.16</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="3,898,747">3,898,747</div></td><td><div class="dw-cell" title="Los Angeles Kings">Los Angeles Kings</div></td><td><div class="dw-cell" title="Dodger Stadium, Rose Bowl, SoFi Stadium – all viable for a Kings-branded outdoor game.">Dodger Stadium, Rose Bowl, SoFi Stadium – all viable for a Kings-branded outdoor game.</div></td><td><div class="dw-cell" title="56,000">56,000</div></td><td><div class="dw-cell" title="89,702">89,702</div></td><td><div class="dw-cell" title="70,000">70,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="54.0">54.0</div></td><td><div class="dw-cell" title="882000">882000</div></td><td><div class="dw-cell" title="21874207.0">21874207.0</div></td><td><div class="dw-cell" title="57.2°F">57.2°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Denver, CO">Denver, CO</div></td><td><div class="dw-cell" title="Denver">Denver</div></td><td><div class="dw-cell" title="58.57">58.57</div></td><td><div class="dw-cell" title="CO">CO</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="715,522">715,522</div></td><td><div class="dw-cell" title="Colorado Avalanche">Colorado Avalanche</div></td><td><div class="dw-cell" title="Coors Field (2016 Stadium Series), Empower Field at Mile High (Broncos).">Coors Field (2016 Stadium Series), Empower Field at Mile High (Broncos).</div></td><td><div class="dw-cell" title="46,897">46,897</div></td><td><div class="dw-cell" title="76,125">76,125</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="78.0">78.0</div></td><td><div class="dw-cell" title="773000">773000</div></td><td><div class="dw-cell" title="29529451.0">29529451.0</div></td><td><div class="dw-cell" title="30.7°F">30.7°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Anaheim / LA area, CA">Anaheim / LA area, CA</div></td><td><div class="dw-cell" title="Anaheim">Anaheim</div></td><td><div class="dw-cell" title="55.28">55.28</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="346,824">346,824</div></td><td><div class="dw-cell" title="Anaheim Ducks">Anaheim Ducks</div></td><td><div class="dw-cell" title="Angel Stadium (MLB), Dodger Stadium in LA (used for 2014 Stadium Series), Rose Bowl (Pasadena), SoFi Stadium (Inglewood, NFL).">Angel Stadium (MLB), Dodger Stadium in LA (used for 2014 Stadium Series), Rose Bowl (Pasadena), SoFi Stadium (Inglewood, NFL).</div></td><td><div class="dw-cell" title="45,500">45,500</div></td><td><div class="dw-cell" title="56,000">56,000</div></td><td><div class="dw-cell" title="89,702">89,702</div></td><td><div class="dw-cell" title="70,000">70,000</div></td><td><div class="dw-cell" title="54.0">54.0</div></td><td><div class="dw-cell" title="403000">403000</div></td><td><div class="dw-cell" title="21874207.0">21874207.0</div></td><td><div class="dw-cell" title="57.0°F">57.0°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Seattle, WA">Seattle, WA</div></td><td><div class="dw-cell" title="Seattle">Seattle</div></td><td><div class="dw-cell" title="52.97">52.97</div></td><td><div class="dw-cell" title="WA">WA</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="737,015">737,015</div></td><td><div class="dw-cell" title="Seattle Kraken">Seattle Kraken</div></td><td><div class="dw-cell" title="Lumen Field (NFL + Sounders), T-Mobile Park (Mariners).">Lumen Field (NFL + Sounders), T-Mobile Park (Mariners).</div></td><td><div class="dw-cell" title="68,740">68,740</div></td><td><div class="dw-cell" title="47,929">47,929</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="210.0">210.0</div></td><td><div class="dw-cell" title="230000">230000</div></td><td><div class="dw-cell" title="17997233.0">17997233.0</div></td><td><div class="dw-cell" title="41.8°F">41.8°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Detroit / Ann Arbor, MI">Detroit / Ann Arbor, MI</div></td><td><div class="dw-cell" title="Detroit">Detroit</div></td><td><div class="dw-cell" title="52.94">52.94</div></td><td><div class="dw-cell" title="MI">MI</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="639,111">639,111</div></td><td><div class="dw-cell" title="Detroit Red Wings">Detroit Red Wings</div></td><td><div class="dw-cell" title="Michigan Stadium (Ann Arbor, 2014 WC), Comerica Park (Tigers), Ford Field (Lions – indoor but large).">Michigan Stadium (Ann Arbor, 2014 WC), Comerica Park (Tigers), Ford Field (Lions – indoor but large).</div></td><td><div class="dw-cell" title="107,601">107,601</div></td><td><div class="dw-cell" title="41,083">41,083</div></td><td><div class="dw-cell" title="65,000">65,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="55.0">55.0</div></td><td><div class="dw-cell" title="1800000">1800000</div></td><td><div class="dw-cell" title="11787777.0">11787777.0</div></td><td><div class="dw-cell" title="25.6°F">25.6°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Vegas / Paradise, NV">Vegas / Paradise, NV</div></td><td><div class="dw-cell" title="Las Vegas">Las Vegas</div></td><td><div class="dw-cell" title="50.26">50.26</div></td><td><div class="dw-cell" title="NV">NV</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="641,903">641,903</div></td><td><div class="dw-cell" title="Vegas Golden Knights">Vegas Golden Knights</div></td><td><div class="dw-cell" title="Allegiant Stadium (Raiders, enclosed but huge), Las Vegas Ballpark (AAA baseball, smaller but outdoor).">Allegiant Stadium (Raiders, enclosed but huge), Las Vegas Ballpark (AAA baseball, smaller but outdoor).</div></td><td><div class="dw-cell" title="65,000">65,000</div></td><td><div class="dw-cell" title="10,000">10,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="121.0">121.0</div></td><td><div class="dw-cell" title="420000">420000</div></td><td><div class="dw-cell" title="19600869.0">19600869.0</div></td><td><div class="dw-cell" title="48.9°F">48.9°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="New York City, NY">New York City, NY</div></td><td><div class="dw-cell" title="New York City">New York City</div></td><td><div class="dw-cell" title="46.77">46.77</div></td><td><div class="dw-cell" title="NY">NY</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="8,804,190">8,804,190</div></td><td><div class="dw-cell" title="New York Rangers">New York Rangers</div></td><td><div class="dw-cell" title="Yankee Stadium (Stadium Series), Citi Field (2018 Winter Classic), MetLife Stadium (regional NFL).">Yankee Stadium (Stadium Series), Citi Field (2018 Winter Classic), MetLife Stadium (regional NFL).</div></td><td><div class="dw-cell" title="46,537">46,537</div></td><td><div class="dw-cell" title="41,922">41,922</div></td><td><div class="dw-cell" title="82,500">82,500</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="66.0">66.0</div></td><td><div class="dw-cell" title="1400000">1400000</div></td><td><div class="dw-cell" title="12090274.0">12090274.0</div></td><td><div class="dw-cell" title="33.7°F">33.7°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Boston, MA">Boston, MA</div></td><td><div class="dw-cell" title="Boston">Boston</div></td><td><div class="dw-cell" title="45.03">45.03</div></td><td><div class="dw-cell" title="MA">MA</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="675,647">675,647</div></td><td><div class="dw-cell" title="Boston Bruins">Boston Bruins</div></td><td><div class="dw-cell" title="Fenway Park (used multiple Winter Classics), Gillette Stadium (Foxborough, NFL).">Fenway Park (used multiple Winter Classics), Gillette Stadium (Foxborough, NFL).</div></td><td><div class="dw-cell" title="37,755">37,755</div></td><td><div class="dw-cell" title="65,000">65,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="15.0">15.0</div></td><td><div class="dw-cell" title="2100000">2100000</div></td><td><div class="dw-cell" title="13559018.0">13559018.0</div></td><td><div class="dw-cell" title="30.0°F">30.0°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Philadelphia, PA">Philadelphia, PA</div></td><td><div class="dw-cell" title="Philadelphia">Philadelphia</div></td><td><div class="dw-cell" title="43.73">43.73</div></td><td><div class="dw-cell" title="PA">PA</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="1,603,797">1,603,797</div></td><td><div class="dw-cell" title="Philadelphia Flyers">Philadelphia Flyers</div></td><td><div class="dw-cell" title="Citizens Bank Park (2012 WC), Lincoln Financial Field (2019 Stadium Series).">Citizens Bank Park (2012 WC), Lincoln Financial Field (2019 Stadium Series).</div></td><td><div class="dw-cell" title="42,901">42,901</div></td><td><div class="dw-cell" title="69,176">69,176</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="123.0">123.0</div></td><td><div class="dw-cell" title="1000000">1000000</div></td><td><div class="dw-cell" title="11150090.0">11150090.0</div></td><td><div class="dw-cell" title="33.9°F">33.9°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Newark / NYC area, NJ">Newark / NYC area, NJ</div></td><td><div class="dw-cell" title="Newark">Newark</div></td><td><div class="dw-cell" title="43.43">43.43</div></td><td><div class="dw-cell" title="NJ">NJ</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="8,804,190">8,804,190</div></td><td><div class="dw-cell" title="New Jersey Devils">New Jersey Devils</div></td><td><div class="dw-cell" title="MetLife Stadium (East Rutherford), Red Bull Arena (Harrison), plus NYC ballparks as regional options.">MetLife Stadium (East Rutherford), Red Bull Arena (Harrison), plus NYC ballparks as regional options.</div></td><td><div class="dw-cell" title="82,500">82,500</div></td><td><div class="dw-cell" title="25,000">25,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="66.0">66.0</div></td><td><div class="dw-cell" title="467000">467000</div></td><td><div class="dw-cell" title="16438464.0">16438464.0</div></td><td><div class="dw-cell" title="32°F">32°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Tampa, FL">Tampa, FL</div></td><td><div class="dw-cell" title="Tampa">Tampa</div></td><td><div class="dw-cell" title="42.79">42.79</div></td><td><div class="dw-cell" title="FL">FL</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="3,175,000">3,175,000</div></td><td><div class="dw-cell" title="Tampa Bay Lightning">Tampa Bay Lightning</div></td><td><div class="dw-cell" title="Raymond James Stadium (Buccaneers – set to host a 2026 Stadium Series game vs. Boston), Tropicana Field (indoor but large).">Raymond James Stadium (Buccaneers – set to host a 2026 Stadium Series game vs. Boston), Tropicana Field (indoor but large).</div></td><td><div class="dw-cell" title="69,218">69,218</div></td><td><div class="dw-cell" title="25,025">25,025</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="97.0">97.0</div></td><td><div class="dw-cell" title="610000">610000</div></td><td><div class="dw-cell" title="8876713.0">8876713.0</div></td><td><div class="dw-cell" title="61.5°F">61.5°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Sunrise / Miami, FL">Sunrise / Miami, FL</div></td><td><div class="dw-cell" title="Miami">Miami</div></td><td><div class="dw-cell" title="42.34">42.34</div></td><td><div class="dw-cell" title="FL">FL</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="6,138,333">6,138,333</div></td><td><div class="dw-cell" title="Florida Panthers">Florida Panthers</div></td><td><div class="dw-cell" title="loanDepot Park in Miami (confirmed host of 2026 Winter Classic), Hard Rock Stadium (Dolphins) as another big outdoor option.">loanDepot Park in Miami (confirmed host of 2026 Winter Classic), Hard Rock Stadium (Dolphins) as another big outdoor option.</div></td><td><div class="dw-cell" title="36,742">36,742</div></td><td><div class="dw-cell" title="65,326">65,326</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="10.0">10.0</div></td><td><div class="dw-cell" title="265000">265000</div></td><td><div class="dw-cell" title="16611116.0">16611116.0</div></td><td><div class="dw-cell" title="68.8°F">68.8°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="NYC / Long Island area, NY">NYC / Long Island area, NY</div></td><td><div class="dw-cell" title="Long Island">Long Island</div></td><td><div class="dw-cell" title="37.49">37.49</div></td><td><div class="dw-cell" title="NY">NY</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="20,140,470">20,140,470</div></td><td><div class="dw-cell" title="New York Islanders">New York Islanders</div></td><td><div class="dw-cell" title="Same regional mix: MetLife Stadium, Yankee Stadium, Citi Field – all practical for an Isles-branded event.">Same regional mix: MetLife Stadium, Yankee Stadium, Citi Field – all practical for an Isles-branded event.</div></td><td><div class="dw-cell" title="82,500">82,500</div></td><td><div class="dw-cell" title="46,537">46,537</div></td><td><div class="dw-cell" title="41,922">41,922</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="66.0">66.0</div></td><td><div class="dw-cell" title="320000">320000</div></td><td><div class="dw-cell" title="12090274.0">12090274.0</div></td><td><div class="dw-cell" title="31°F">31°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Pittsburgh, PA">Pittsburgh, PA</div></td><td><div class="dw-cell" title="Pittsburgh">Pittsburgh</div></td><td><div class="dw-cell" title="37.22">37.22</div></td><td><div class="dw-cell" title="PA">PA</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="2,370,000">2,370,000</div></td><td><div class="dw-cell" title="Pittsburgh Penguins">Pittsburgh Penguins</div></td><td><div class="dw-cell" title="Acrisure Stadium (ex-Heinz Field; 2011 WC + 2017 Stadium Series), PNC Park (Pirates).">Acrisure Stadium (ex-Heinz Field; 2011 WC + 2017 Stadium Series), PNC Park (Pirates).</div></td><td><div class="dw-cell" title="68,400">68,400</div></td><td><div class="dw-cell" title="38,747">38,747</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="59.0">59.0</div></td><td><div class="dw-cell" title="1900000">1900000</div></td><td><div class="dw-cell" title="3573816.0">3573816.0</div></td><td><div class="dw-cell" title="30.3°F">30.3°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Nashville, TN">Nashville, TN</div></td><td><div class="dw-cell" title="Nashville">Nashville</div></td><td><div class="dw-cell" title="36.1">36.1</div></td><td><div class="dw-cell" title="TN">TN</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="689,447">689,447</div></td><td><div class="dw-cell" title="Nashville Predators">Nashville Predators</div></td><td><div class="dw-cell" title="Nissan Stadium (Titans, used 2022 Stadium Series), First Horizon Park (MiLB).">Nissan Stadium (Titans, used 2022 Stadium Series), First Horizon Park (MiLB).</div></td><td><div class="dw-cell" title="69,143">69,143</div></td><td><div class="dw-cell" title="10,000">10,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="99.0">99.0</div></td><td><div class="dw-cell" title="416000">416000</div></td><td><div class="dw-cell" title="8781619.0">8781619.0</div></td><td><div class="dw-cell" title="39.5°F">39.5°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="St. Paul / Minneapolis, MN">St. Paul / Minneapolis, MN</div></td><td><div class="dw-cell" title="Minneapolis">Minneapolis</div></td><td><div class="dw-cell" title="35.66">35.66</div></td><td><div class="dw-cell" title="MN">MN</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="3,690,261">3,690,261</div></td><td><div class="dw-cell" title="Minnesota Wild">Minnesota Wild</div></td><td><div class="dw-cell" title="Target Field (2022 Winter Classic), Huntington Bank Stadium (Gophers football), U.S. Bank Stadium (indoor NFL but huge).">Target Field (2022 Winter Classic), Huntington Bank Stadium (Gophers football), U.S. Bank Stadium (indoor NFL but huge).</div></td><td><div class="dw-cell" title="38,544">38,544</div></td><td><div class="dw-cell" title="50,805">50,805</div></td><td><div class="dw-cell" title="66,860">66,860</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="83.0">83.0</div></td><td><div class="dw-cell" title="646000">646000</div></td><td><div class="dw-cell" title="13464945.0">13464945.0</div></td><td><div class="dw-cell" title="16.5°F">16.5°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Washington, DC area">Washington, DC area</div></td><td><div class="dw-cell" title="Washington">Washington</div></td><td><div class="dw-cell" title="33.81">33.81</div></td><td><div class="dw-cell" title="DC">DC</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="689,545">689,545</div></td><td><div class="dw-cell" title="Washington Capitals">Washington Capitals</div></td><td><div class="dw-cell" title="Nationals Park (2015 Winter Classic), FedExField (Landover, Commanders, used 2011 WC), Audi Field (MLS).">Nationals Park (2015 Winter Classic), FedExField (Landover, Commanders, used 2011 WC), Audi Field (MLS).</div></td><td><div class="dw-cell" title="41,546">41,546</div></td><td><div class="dw-cell" title="80,000">80,000</div></td><td><div class="dw-cell" title="20,000">20,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="19.0">19.0</div></td><td><div class="dw-cell" title="790000">790000</div></td><td><div class="dw-cell" title="7476634.0">7476634.0</div></td><td><div class="dw-cell" title="37.3°F">37.3°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Columbus, OH">Columbus, OH</div></td><td><div class="dw-cell" title="Columbus">Columbus</div></td><td><div class="dw-cell" title="32.93">32.93</div></td><td><div class="dw-cell" title="OH">OH</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="905,748">905,748</div></td><td><div class="dw-cell" title="Columbus Blue Jackets">Columbus Blue Jackets</div></td><td><div class="dw-cell" title="Ohio Stadium (“The Horseshoe”, Ohio State), Historic Crew Stadium or Lower.com Field (MLS).">Ohio Stadium (“The Horseshoe”, Ohio State), Historic Crew Stadium or Lower.com Field (MLS).</div></td><td><div class="dw-cell" title="102,780">102,780</div></td><td><div class="dw-cell" title="20,000">20,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="66.0">66.0</div></td><td><div class="dw-cell" title="328000">328000</div></td><td><div class="dw-cell" title="3257503.0">3257503.0</div></td><td><div class="dw-cell" title="29.8°F">29.8°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Vancouver, BC">Vancouver, BC</div></td><td><div class="dw-cell" title="Vancouver">Vancouver</div></td><td><div class="dw-cell" title="31.64">31.64</div></td><td><div class="dw-cell" title="BC">BC</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="662,248">662,248</div></td><td><div class="dw-cell" title="Vancouver Canucks">Vancouver Canucks</div></td><td><div class="dw-cell" title="BC Place (retractable roof – 2014 Heritage Classic), Empire Field (historical; temp stadium used in past).">BC Place (retractable roof – 2014 Heritage Classic), Empire Field (historical; temp stadium used in past).</div></td><td><div class="dw-cell" title="54,300">54,300</div></td><td><div class="dw-cell" title="27,500">27,500</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="125.0">125.0</div></td><td><div class="dw-cell" title="972000">972000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="39°F">39°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Toronto, ON">Toronto, ON</div></td><td><div class="dw-cell" title="Toronto">Toronto</div></td><td><div class="dw-cell" title="31.38">31.38</div></td><td><div class="dw-cell" title="ON">ON</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="2,794,356">2,794,356</div></td><td><div class="dw-cell" title="Toronto Maple Leafs">Toronto Maple Leafs</div></td><td><div class="dw-cell" title="BMO Field (2017 Centennial Classic), Rogers Centre (retractable roof), plus large college sites like Varsity Stadium for smaller events.">BMO Field (2017 Centennial Classic), Rogers Centre (retractable roof), plus large college sites like Varsity Stadium for smaller events.</div></td><td><div class="dw-cell" title="30,000">30,000</div></td><td><div class="dw-cell" title="54,000">54,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="122.0">122.0</div></td><td><div class="dw-cell" title="1300000">1300000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="28°F">28°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="San Jose / Bay Area, CA">San Jose / Bay Area, CA</div></td><td><div class="dw-cell" title="San Jose">San Jose</div></td><td><div class="dw-cell" title="28.11">28.11</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="1,013,240">1,013,240</div></td><td><div class="dw-cell" title="San Jose Sharks">San Jose Sharks</div></td><td><div class="dw-cell" title="Levi’s Stadium (2015 Stadium Series), Stanford Stadium (Palo Alto), Oracle Park (SF) as a regional ballpark option.">Levi’s Stadium (2015 Stadium Series), Stanford Stadium (Palo Alto), Oracle Park (SF) as a regional ballpark option.</div></td><td><div class="dw-cell" title="68,500">68,500</div></td><td><div class="dw-cell" title="50,000">50,000</div></td><td><div class="dw-cell" title="41,265">41,265</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="67.0">67.0</div></td><td><div class="dw-cell" title="852,000">852,000</div></td><td><div class="dw-cell" title="4155232.0">4155232.0</div></td><td><div class="dw-cell" title="51.0°F">51.0°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Salt Lake City, UT">Salt Lake City, UT</div></td><td><div class="dw-cell" title="Salt Lake City">Salt Lake City</div></td><td><div class="dw-cell" title="25.88">25.88</div></td><td><div class="dw-cell" title="UT">UT</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="200,591">200,591</div></td><td><div class="dw-cell" title="Utah Mammoth">Utah Mammoth</div></td><td><div class="dw-cell" title="Rice-Eccles Stadium (Utah Utes), LaVell Edwards Stadium (BYU in nearby Provo). Utah Mammoth are the relocated Coyotes franchise based in SLC.">Rice-Eccles Stadium (Utah Utes), LaVell Edwards Stadium (BYU in nearby Provo). Utah Mammoth are the relocated Coyotes franchise based in SLC.</div></td><td><div class="dw-cell" title="51,444">51,444</div></td><td><div class="dw-cell" title="62,073">62,073</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="32.0">32.0</div></td><td><div class="dw-cell" title="1600">1600</div></td><td><div class="dw-cell" title="10233134.0">10233134.0</div></td><td><div class="dw-cell" title="32.3°F">32.3°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="St. Louis, MO">St. Louis, MO</div></td><td><div class="dw-cell" title="St. Louis">St. Louis</div></td><td><div class="dw-cell" title="25.68">25.68</div></td><td><div class="dw-cell" title="MO">MO</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="2,820,000">2,820,000</div></td><td><div class="dw-cell" title="St. Louis Blues">St. Louis Blues</div></td><td><div class="dw-cell" title="Busch Stadium (2017 Winter Classic), CITYPARK (MLS) as a smaller soccer option.">Busch Stadium (2017 Winter Classic), CITYPARK (MLS) as a smaller soccer option.</div></td><td><div class="dw-cell" title="44,383">44,383</div></td><td><div class="dw-cell" title="22,500">22,500</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="65.0">65.0</div></td><td><div class="dw-cell" title="761000">761000</div></td><td><div class="dw-cell" title="5818049.0">5818049.0</div></td><td><div class="dw-cell" title="32.6°F">32.6°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Raleigh, NC">Raleigh, NC</div></td><td><div class="dw-cell" title="Raleigh">Raleigh</div></td><td><div class="dw-cell" title="25.36">25.36</div></td><td><div class="dw-cell" title="NC">NC</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="482,295">482,295</div></td><td><div class="dw-cell" title="Carolina Hurricanes">Carolina Hurricanes</div></td><td><div class="dw-cell" title="Carter–Finley Stadium (NC State, used 2023 Stadium Series), Kenan Stadium (UNC, Chapel Hill – regional option).">Carter–Finley Stadium (NC State, used 2023 Stadium Series), Kenan Stadium (UNC, Chapel Hill – regional option).</div></td><td><div class="dw-cell" title="56,919">56,919</div></td><td><div class="dw-cell" title="63,000">63,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="19.0">19.0</div></td><td><div class="dw-cell" title="326000">326000</div></td><td><div class="dw-cell" title="5450834.0">5450834.0</div></td><td><div class="dw-cell" title="43.4°F">43.4°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Montreal, QC">Montreal, QC</div></td><td><div class="dw-cell" title="Montreal">Montreal</div></td><td><div class="dw-cell" title="24.02">24.02</div></td><td><div class="dw-cell" title="QC">QC</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="1,762,949">1,762,949</div></td><td><div class="dw-cell" title="Montreal Canadiens">Montreal Canadiens</div></td><td><div class="dw-cell" title="Olympic Stadium, Percival Molson Memorial Stadium (McGill), Stade Saputo (CF Montréal) as a smaller option.">Olympic Stadium, Percival Molson Memorial Stadium (McGill), Stade Saputo (CF Montréal) as a smaller option.</div></td><td><div class="dw-cell" title="56,040">56,040</div></td><td><div class="dw-cell" title="23,035">23,035</div></td><td><div class="dw-cell" title="19,619">19,619</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="18.0">18.0</div></td><td><div class="dw-cell" title="1500000">1500000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="21°F">21°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Buffalo, NY">Buffalo, NY</div></td><td><div class="dw-cell" title="Buffalo">Buffalo</div></td><td><div class="dw-cell" title="20.62">20.62</div></td><td><div class="dw-cell" title="NY">NY</div></td><td><div class="dw-cell" title="USA">USA</div></td><td><div class="dw-cell" title="274,678">274,678</div></td><td><div class="dw-cell" title="Buffalo Sabres">Buffalo Sabres</div></td><td><div class="dw-cell" title="Highmark Stadium (Bills, used 2008 WC), Sahlen Field (downtown ballpark).">Highmark Stadium (Bills, used 2008 WC), Sahlen Field (downtown ballpark).</div></td><td><div class="dw-cell" title="71,608">71,608</div></td><td><div class="dw-cell" title="16,600">16,600</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="16.0">16.0</div></td><td><div class="dw-cell" title="493000">493000</div></td><td><div class="dw-cell" title="1869359.0">1869359.0</div></td><td><div class="dw-cell" title="25.6°F">25.6°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Edmonton, AB">Edmonton, AB</div></td><td><div class="dw-cell" title="Edmonton">Edmonton</div></td><td><div class="dw-cell" title="17.7">17.7</div></td><td><div class="dw-cell" title="AB">AB</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="1,010,899">1,010,899</div></td><td><div class="dw-cell" title="Edmonton Oilers">Edmonton Oilers</div></td><td><div class="dw-cell" title="Commonwealth Stadium (CFL – used 2003 &amp; 2023 Heritage Classics).">Commonwealth Stadium (CFL – used 2003 &amp; 2023 Heritage Classics).</div></td><td><div class="dw-cell" title="56,302">56,302</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="49.0">49.0</div></td><td><div class="dw-cell" title="667000">667000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="12.3°F">12.3°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Calgary, AB">Calgary, AB</div></td><td><div class="dw-cell" title="Calgary">Calgary</div></td><td><div class="dw-cell" title="12.7">12.7</div></td><td><div class="dw-cell" title="AB">AB</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="1,306,784">1,306,784</div></td><td><div class="dw-cell" title="Calgary Flames">Calgary Flames</div></td><td><div class="dw-cell" title="McMahon Stadium (CFL/college – used Heritage Classic), potential future new CFL/football venues if built.">McMahon Stadium (CFL/college – used Heritage Classic), potential future new CFL/football venues if built.</div></td><td><div class="dw-cell" title="35,650">35,650</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="78.0">78.0</div></td><td><div class="dw-cell" title="389000">389000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="12.3°F">12.3°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Ottawa, ON">Ottawa, ON</div></td><td><div class="dw-cell" title="Ottawa">Ottawa</div></td><td><div class="dw-cell" title="7.84">7.84</div></td><td><div class="dw-cell" title="ON">ON</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="1,017,449">1,017,449</div></td><td><div class="dw-cell" title="Ottawa Senators">Ottawa Senators</div></td><td><div class="dw-cell" title="TD Place Stadium (Lansdowne, CFL/USports – 2017 Heritage Classic-style event), TD Place field area allows temp setups.">TD Place Stadium (Lansdowne, CFL/USports – 2017 Heritage Classic-style event), TD Place field area allows temp setups.</div></td><td><div class="dw-cell" title="24,000">24,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="52.0">52.0</div></td><td><div class="dw-cell" title="323000">323000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="14°F">14°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Winnipeg, MB">Winnipeg, MB</div></td><td><div class="dw-cell" title="Winnipeg">Winnipeg</div></td><td><div class="dw-cell" title="5.96">5.96</div></td><td><div class="dw-cell" title="MB">MB</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title="749,607">749,607</div></td><td><div class="dw-cell" title="Winnipeg Jets">Winnipeg Jets</div></td><td><div class="dw-cell" title="IG Field (Blue Bombers, used 2016 Heritage Classic).">IG Field (Blue Bombers, used 2016 Heritage Classic).</div></td><td><div class="dw-cell" title="33,000">33,000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="17.0">17.0</div></td><td><div class="dw-cell" title="412000">412000</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="5°F">5°F</div></td></tr>
+            <tr><td><div class="dw-cell" title="Toronto, ON (sorry, Canada sneaking in here)">Toronto, ON (sorry, Canada sneaking in here)</div></td><td><div class="dw-cell" title="Toronto">Toronto</div></td><td><div class="dw-cell" title="3.53">3.53</div></td><td><div class="dw-cell" title="ON">ON</div></td><td><div class="dw-cell" title="CA">CA</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="(will list under Canada below, just keeping U.S. tidy first)">(will list under Canada below, just keeping U.S. tidy first)</div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title=""></div></td><td><div class="dw-cell" title="20°F">20°F</div></td></tr>
+            <tr class="dw-empty" style="display:none;"><td colspan="16">No Matches Found.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dw-page-status " style="padding:6px 2px 4px; color:#6b7280; font:12px/1.2 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+      <span id="dw-page-status-text"></span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="vi-footer " role="contentinfo">
+    <div class="footer-inner">
+      <img src="https://i.postimg.cc/x1nG117r/AN-final2-logo.png" alt="Action Network Logo" width="140" height="auto" loading="lazy" decoding="async" />
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const root = document.getElementById('bt-block');
+    if (!root || root.dataset.dwInit === '1') return;
+    root.dataset.dwInit='1';
+
+    const table = root.querySelector('table.dw-table');
+    const tb = table ? table.tBodies[0] : null;
+    const scroller = root.querySelector('.dw-scroll');
+    const controls = root.querySelector('.dw-controls');
+    if(!table || !tb || !scroller || !controls) return;
+
+    const controlsHidden = controls.classList.contains('vi-hide');
+
+    const searchFieldWrap = controls.querySelector('.dw-field');
+    const searchInput = controls.querySelector('.dw-input');
+    const clearBtn = controls.querySelector('.dw-clear');
+
+    const pagerWrap = controls.querySelector('.dw-pager');
+    const sizeSel = pagerWrap ? pagerWrap.querySelector('#bt-size') : null;
+    const prevBtn = pagerWrap ? pagerWrap.querySelector('[data-page="prev"]') : null;
+    const nextBtn = pagerWrap ? pagerWrap.querySelector('[data-page="next"]') : null;
+
+    const embedWrap = controls.querySelector('.dw-embed');
+    const downloadBtn = embedWrap ? embedWrap.querySelector('#dw-download-png') : null;
+    const menu = embedWrap ? embedWrap.querySelector('#dw-download-menu') : null;
+    const btnTop10 = embedWrap ? embedWrap.querySelector('#dw-dl-top10') : null;
+    const btnBottom10 = embedWrap ? embedWrap.querySelector('#dw-dl-bottom10') : null;
+    const btnEmbed = embedWrap ? embedWrap.querySelector('#dw-embed-script') : null;
+    const menuTitle = embedWrap ? embedWrap.querySelector('#dw-menu-title') : null;
+
+    const emptyRow = tb.querySelector('.dw-empty');
+    const pageStatus = document.getElementById('dw-page-status-text');
+
+    const hasSearch = !controlsHidden
+      && !!searchFieldWrap && !searchFieldWrap.classList.contains('vi-hide')
+      && !!searchInput && !!clearBtn;
+
+    const hasPager = !controlsHidden
+      && !!pagerWrap && !pagerWrap.classList.contains('vi-hide')
+      && !!sizeSel && !!prevBtn && !!nextBtn;
+
+    const hasEmbed = !controlsHidden
+      && !!embedWrap && !embedWrap.classList.contains('vi-hide')
+      && !!downloadBtn && !!menu && !!btnEmbed;
+
+    Array.from(tb.rows).forEach((r,i)=>{ if(!r.classList.contains('dw-empty')) r.dataset.idx=i; });
+
+    let pageSize = hasPager ? (parseInt(sizeSel.value,10) || 10) : 0;
+    let page = 1;
+    let filter = '';
+
+    const onScrollShadow = ()=> scroller.classList.toggle('scrolled', scroller.scrollTop > 0);
+    scroller.addEventListener('scroll', onScrollShadow); onScrollShadow();
+
+    const heads = Array.from(table.tHead.rows[0].cells);
+    heads.forEach((th,i)=>{
+      th.classList.add('sortable'); th.setAttribute('aria-sort','none'); th.dataset.sort='none'; th.tabIndex=0;
+      const type = th.dataset.type || 'text';
+      const go = ()=> sortBy(i,type,th);
+      th.addEventListener('click',go);
+      th.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+    });
+
+    function textOf(tr,i){ return (tr.children[i].innerText||'').trim(); }
+
+    function sortBy(colIdx, type, th){
+      const rows = Array.from(tb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const current = th.dataset.sort || 'none';
+      const next = current==='none' ? 'asc' : current==='asc' ? 'desc' : 'none';
+
+      heads.forEach(h=>{
+        h.dataset.sort='none';
+        h.setAttribute('aria-sort','none');
+        h.classList.remove('is-sorted');
+      });
+
+      if(next === 'none'){
+        rows.sort((a,b)=>(+a.dataset.idx)-(+b.dataset.idx));
+        rows.forEach(r=>tb.insertBefore(r, emptyRow));
+        renderPage();
+        return;
+      }
+
+      th.dataset.sort = next;
+      th.setAttribute('aria-sort', next==='asc'?'ascending':'descending');
+
+      const mul = next==='asc'?1:-1;
+      rows.sort((a,b)=>{
+        let v1=textOf(a,colIdx), v2=textOf(b,colIdx);
+        if((type||'text')==='num'){
+          v1=parseFloat(v1.replace(/[^0-9.\-]/g,'')); if(isNaN(v1)) v1=-Infinity;
+          v2=parseFloat(v2.replace(/[^0-9.\-]/g,'')); if(isNaN(v2)) v2=-Infinity;
+        }else{
+          v1=(v1+'').toLowerCase();
+          v2=(v2+'').toLowerCase();
+        }
+        if(v1>v2) return 1*mul;
+        if(v1<v2) return -1*mul;
+        return 0;
+      });
+      rows.forEach(r=>tb.insertBefore(r, emptyRow));
+      th.classList.add('is-sorted');
+      renderPage();
+    }
+
+    function matchesFilter(tr){
+      if(tr.classList.contains('dw-empty')) return false;
+      if(!filter) return true;
+      return tr.innerText.toLowerCase().includes(filter);
+    }
+
+    function setPageStatus(totalVisible, pages){
+      if(!pageStatus) return;
+      if(totalVisible === 0){ pageStatus.textContent = ""; return; }
+      if(!hasPager || pageSize === 0){ pageStatus.textContent = ""; return; }
+      pageStatus.textContent = "Page " + page + " Of " + pages;
+    }
+
+    function renderPage(){
+      const ordered = Array.from(tb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const visible = ordered.filter(matchesFilter);
+      const total = visible.length;
+
+      ordered.forEach(r=>{ r.style.display='none'; });
+      let shown = [];
+
+      if(total===0){
+        if(emptyRow){
+          emptyRow.style.display='table-row';
+          emptyRow.firstElementChild.colSpan = heads.length;
+        }
+        if(hasPager){ prevBtn.disabled = nextBtn.disabled = true; }
+        setPageStatus(0, 0);
+      }else{
+        if(emptyRow) emptyRow.style.display='none';
+
+        if(!hasPager || pageSize===0){
+          shown = visible;
+          if(hasPager){ prevBtn.disabled = nextBtn.disabled = true; }
+          setPageStatus(total, 1);
+        }else{
+          const pages = Math.max(1, Math.ceil(total / pageSize));
+          page = Math.min(Math.max(1, page), pages);
+          const start = (page-1)*pageSize;
+          const end = start + pageSize;
+          shown = visible.slice(start,end);
+          prevBtn.disabled = page<=1;
+          nextBtn.disabled = page>=pages;
+          setPageStatus(total, pages);
+        }
+      }
+
+      shown.forEach(r=>{ r.style.display='table-row'; });
+
+      scroller.scrollTop = 0;
+    }
+
+    if(hasSearch){
+      const syncClearBtn = ()=> searchFieldWrap.classList.toggle('has-value', !!searchInput.value);
+      let t=null;
+      searchInput.addEventListener('input', e=>{
+        syncClearBtn();
+        clearTimeout(t);
+        t=setTimeout(()=>{
+          filter=(e.target.value||'').toLowerCase().trim();
+          page=1;
+          renderPage();
+        },120);
+      });
+      clearBtn.addEventListener('click', ()=>{
+        searchInput.value='';
+        syncClearBtn();
+        filter='';
+        page=1;
+        renderPage();
+        searchInput.focus();
+      });
+      syncClearBtn();
+    }
+
+    if(hasPager){
+      sizeSel.addEventListener('change', e=>{
+        pageSize = parseInt(e.target.value,10) || 0;
+        page=1;
+        renderPage();
+      });
+      prevBtn.addEventListener('click', ()=>{ page--; renderPage(); });
+      nextBtn.addEventListener('click', ()=>{ page++; renderPage(); });
+    }
+
+    function hideMenu(){ if(menu) menu.classList.add('vi-hide'); }
+    function toggleMenu(){ if(menu) menu.classList.toggle('vi-hide'); }
+
+    document.addEventListener('click', (e)=>{
+      if(!menu || menu.classList.contains('vi-hide')) return;
+      const inMenu = menu.contains(e.target);
+      const inBtn = downloadBtn && downloadBtn.contains(e.target);
+      if(!inMenu && !inBtn) hideMenu();
+    });
+
+    if(hasEmbed && downloadBtn){
+      downloadBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+
+    /* ===== PNG EXPORT (unchanged) ===== */
+    async function waitForFontsAndImages(el){
+      if (document.fonts && document.fonts.ready){
+        try { await document.fonts.ready; } catch(e){}
+      }
+      const imgs = Array.from(el.querySelectorAll('img'));
+      await Promise.all(imgs.map(img=>{
+        if (img.complete) return Promise.resolve();
+        return new Promise(res=>{
+          img.addEventListener('load', res, { once:true });
+          img.addEventListener('error', res, { once:true });
+        });
+      }));
+    }
+
+    function getFilenameBase(clone){
+      const t = clone.querySelector('.vi-table-header .title')?.textContent || 'table';
+      return (t || 'table')
+        .trim()
+        .replace(/\s+/g,'_')
+        .replace(/[^\w\-]+/g,'')
+        .slice(0,60) || 'table';
+    }
+
+    function showRowsInClone(clone, mode){
+      const cloneTb = clone.querySelector('table.dw-table')?.tBodies?.[0];
+      if(!cloneTb) return;
+
+      const cloneRows = Array.from(cloneTb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const ordered = Array.from(tb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const visiblePositions = [];
+      for(let i=0;i<ordered.length;i++){
+        if(matchesFilter(ordered[i])) visiblePositions.push(i);
+      }
+
+      const keep = new Set();
+      if(mode === 'top10'){
+        visiblePositions.slice(0, 10).forEach(i => keep.add(i));
+      }else if(mode === 'bottom10'){
+        visiblePositions.slice(-10).forEach(i => keep.add(i));
+      }
+
+      cloneRows.forEach((r, i)=>{
+        r.style.display = keep.has(i) ? 'table-row' : 'none';
+      });
+
+      const empty = cloneTb.querySelector('.dw-empty');
+      if(empty) empty.style.display='none';
+    }
+
+    async function captureCloneToPng(clone, stage, filename, targetWidth){
+      const cloneScroller = clone.querySelector('.dw-scroll');
+
+      if(cloneScroller){
+        cloneScroller.style.maxHeight = 'none';
+        cloneScroller.style.height = 'auto';
+        cloneScroller.style.overflow = 'visible';
+        cloneScroller.style.overflowX = 'visible';
+        cloneScroller.style.overflowY = 'visible';
+        cloneScroller.classList.add('no-scroll');
+      }
+
+      const w = Math.max(900, Math.ceil(targetWidth || 1200));
+      clone.style.maxWidth = 'none';
+      clone.style.width = w + 'px';
+
+      await new Promise(r => requestAnimationFrame(()=>requestAnimationFrame(r)));
+      await waitForFontsAndImages(clone);
+
+      const fullH = Math.ceil(Math.max(
+        clone.scrollHeight || 0,
+        clone.offsetHeight || 0,
+        clone.getBoundingClientRect().height || 0
+      ));
+
+      const MAX_CAPTURE_AREA = 28_000_000;
+      const area = Math.ceil(w) * Math.ceil(fullH);
+      if(area > MAX_CAPTURE_AREA){
+        stage.remove();
+        console.warn("PNG export skipped: capture area too large.", { w, fullH, area });
+        return;
+      }
+
+      const scale = Math.min(3, Math.max(2, window.devicePixelRatio || 2));
+
+      const canvas = await window.html2canvas(clone, {
+        backgroundColor: '#ffffff',
+        scale,
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+        width: Math.ceil(w),
+        height: Math.ceil(fullH),
+        windowWidth: Math.ceil(w),
+        windowHeight: Math.ceil(fullH),
+        scrollX: 0,
+        scrollY: 0,
+      });
+
+      canvas.toBlob((blob)=>{
+        if(!blob){
+          stage.remove();
+          console.warn("PNG export failed: no blob returned.");
+          return;
+        }
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename + '.png';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(()=>URL.revokeObjectURL(url), 1500);
+        stage.remove();
+      }, 'image/png');
+    }
+
+    async function downloadDomPng(mode){
+      try{
+        hideMenu();
+        if(!window.html2canvas) return;
+
+        const widget = document.querySelector('section.vi-table-embed');
+        if(!widget) return;
+
+        const stage = document.createElement('div');
+        stage.style.position = 'fixed';
+        stage.style.left = '-100000px';
+        stage.style.top = '0';
+        stage.style.background = '#ffffff';
+        stage.style.zIndex = '-1';
+
+        const clone = widget.cloneNode(true);
+        clone.classList.add('export-mode');
+        clone.querySelectorAll('script').forEach(s => s.remove());
+
+        stage.appendChild(clone);
+        document.body.appendChild(stage);
+
+        showRowsInClone(clone, mode);
+
+        const base = getFilenameBase(clone);
+        const suffix = mode === 'bottom10' ? "_bottom10" : "_top10";
+        const filename = (base + suffix).slice(0, 70);
+
+        const targetWidth = widget.getBoundingClientRect()?.width || 1200;
+        await captureCloneToPng(clone, stage, filename, targetWidth);
+
+      }catch(err){
+        console.error("PNG export failed:", err);
+      }
+    }
+
+    function getFullHtml(){
+      const html = document.documentElement ? document.documentElement.outerHTML : "";
+      return "<!doctype html>\n" + html;
+    }
+
+    async function copyToClipboard(text){
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      }catch(e){}
+      try{
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly','');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        return true;
+      }catch(e){
+        return false;
+      }
+    }
+
+    async function onEmbedClick(){
+      hideMenu();
+      const code = getFullHtml();
+      const ok = await copyToClipboard(code);
+      if(menuTitle){
+        menuTitle.textContent = ok ? 'HTML copied!' : 'Copy failed (try again)';
+        setTimeout(()=>{ menuTitle.textContent = 'Choose action'; }, 1800);
+      }
+    }
+
+    if(hasEmbed && btnTop10) btnTop10.addEventListener('click', ()=> downloadDomPng('top10'));
+    if(hasEmbed && btnBottom10) btnBottom10.addEventListener('click', ()=> downloadDomPng('bottom10'));
+    if(hasEmbed && btnEmbed) btnEmbed.addEventListener('click', onEmbedClick);
+
+    renderPage();
+  })();
+  </script>
+
+</section>
+</body>
+</html>
