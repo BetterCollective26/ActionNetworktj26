@@ -40,5 +40,16 @@
     "github_repo_url": "https://github.com/bettercollective26/ActionNetworktj26",
     "created_by": "gauthambc",
     "created_at_utc": "2026-01-23 13:02:40 UTC"
+  },
+  "table1270126.html": {
+    "brand": "Action Network",
+    "table_title": "Table 1",
+    "file": "table1270126.html",
+    "pages_url": "https://bettercollective26.github.io/ActionNetworktj26/table1270126.html",
+    "github_repo_url": "https://github.com/bettercollective26/ActionNetworktj26",
+    "created_by": "gauthambc",
+    "created_at_utc": "2026-01-27 22:09:32 UTC",
+    "bundle_path": "bundles/table1270126.html.json",
+    "has_bundle": true
   }
 }
