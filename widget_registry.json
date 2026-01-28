@@ -62,5 +62,16 @@
     "created_at_utc": "2026-01-28 13:56:28 UTC",
     "bundle_path": "bundles/nfl-fan-bases-ranked-by-average-alcoholic-drinks-consumed-during-the-super-bowl.html.json",
     "has_bundle": true
+  },
+  "nfl-fan-bases-ranked-by-heavy-drinking-during-the-super-bowl.html": {
+    "brand": "Action Network",
+    "table_title": "NFL Fan Bases Ranked By Heavy Drinking During The Super Bowl",
+    "file": "nfl-fan-bases-ranked-by-heavy-drinking-during-the-super-bowl.html",
+    "pages_url": "https://bettercollective26.github.io/ActionNetworktj26/nfl-fan-bases-ranked-by-heavy-drinking-during-the-super-bowl.html",
+    "github_repo_url": "https://github.com/bettercollective26/ActionNetworktj26",
+    "created_by": "benbc",
+    "created_at_utc": "2026-01-28 14:16:32 UTC",
+    "bundle_path": "bundles/nfl-fan-bases-ranked-by-heavy-drinking-during-the-super-bowl.html.json",
+    "has_bundle": true
   }
 }
